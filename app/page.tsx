@@ -135,7 +135,9 @@ export default function Home() {
             <h2 id="producto-title" className="h1">
               Una app que hace
               <br />
-              una cosa. <span className="accent-muted">Y la hace bien.</span>
+              una cosa.
+              <br />
+              <span className="accent-muted">Y la hace bien.</span>
             </h2>
           </div>
           <ProductStates />

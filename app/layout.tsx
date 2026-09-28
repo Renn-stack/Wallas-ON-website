@@ -1,22 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import { Header, Footer } from "@/components/Chrome";
 import { RevealObserver } from "@/components/RevealObserver";
 import "./globals.css";
-
-const geist = Geist({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-geist",
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-geist-mono",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: {
@@ -41,7 +28,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${geist.variable} ${geistMono.variable}`}>
+    <html lang="es" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body>
         <a href="#contenido" className="skip-link">
           Saltar al contenido

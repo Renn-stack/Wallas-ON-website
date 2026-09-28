@@ -20,7 +20,7 @@
   --ok: var(--ok-fallback);
   --warn: var(--warn-fallback);
 
-  --font: var(--font-geist), 'Geist', system-ui, sans-serif;
+  --font: var(--font-geist-sans), 'Geist', system-ui, sans-serif;
   --mono: var(--font-geist-mono), 'Geist Mono', ui-monospace, monospace;
 
   --radius-card: 22px;
@@ -307,6 +307,10 @@ main:focus {
 }
 
 @media (max-width: 479px) {
+  .actions {
+    width: 100%;
+  }
+
   .actions .btn--primary,
   .actions .btn--outline {
     width: 100%;
@@ -345,6 +349,7 @@ main:focus {
 }
 
 .header__logo {
+  min-height: 44px;
   font-size: 17px;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -672,7 +677,7 @@ main:focus {
 }
 
 .product__inline-phone {
-  --phone-w: min(280px, 76vw);
+  --phone-w: min(248px, 68vw);
   justify-self: center;
 }
 
@@ -803,7 +808,7 @@ main:focus {
 
 .footer__links a {
   display: inline-block;
-  padding-block: 8px;
+  padding-block: 12px;
   font-size: 15px;
   color: var(--fg-2);
 }
@@ -823,10 +828,9 @@ main:focus {
 /* ---------- Teléfono ---------- */
 
 .phone {
-  --phone-w: 300px;
-  width: var(--phone-w);
+  width: var(--phone-w, 300px);
   aspect-ratio: 9 / 19.5;
-  font-size: calc(var(--phone-w) / 20);
+  font-size: calc(var(--phone-w, 300px) / 20);
   padding: 0.5em;
   border-radius: 3em;
   background: #000;
