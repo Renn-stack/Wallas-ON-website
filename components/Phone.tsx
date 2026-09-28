@@ -1,54 +1,22 @@
-import { PowerIcon } from "./Icons";
+import { dictionaries, type Lang, type ScreenState } from "@/lib/i18n";
+import { AudioOutputIcon, EarIcon, PowerIcon } from "./Icons";
 
-export type ScreenState = "off" | "nodevice" | "active";
-
-type ScreenContent = {
-  title: string;
-  accent: string;
-  body: string;
-  status?: string;
-  button: string;
-  buttonTone: "light" | "dark";
-};
-
-export const screens: Record<ScreenState, ScreenContent> = {
-  off: {
-    title: "Tu audio está",
-    accent: "en pausa.",
-    body: "Actívalo para que tu dispositivo auditivo no entre y salga del streaming en los silencios.",
-    button: "Activar",
-    buttonTone: "light",
-  },
-  nodevice: {
-    title: "Dispositivo auditivo",
-    accent: "no conectado.",
-    body: "Conecta tu dispositivo auditivo desde los ajustes de Bluetooth del iPhone. Después, vuelve a Wallas ON.",
-    button: "Abrir ajustes de Bluetooth",
-    buttonTone: "light",
-  },
-  active: {
-    title: "Tu audio está",
-    accent: "activo.",
-    body: "La sesión de audio se mantiene abierta hasta que la detengas, aunque no suene nada.",
-    status: "Activo durante 1 h 43 min",
-    button: "Detener",
-    buttonTone: "dark",
-  },
-};
-
-export function screenLabel(state: ScreenState) {
-  const s = screens[state];
-  return `Pantalla de Wallas ON: ${s.title} ${s.accent} ${s.status ? s.status + "." : ""}`.trim();
+export function screenLabel(lang: Lang, state: ScreenState) {
+  const { a11y, app } = dictionaries[lang];
+  const s = app.screens[state];
+  return [a11y.screenPrefix, s.title, s.accent, app.device + ".", s.status ? s.status + "." : ""].join(" ").trim();
 }
 
 /** Contenido de una pantalla de la app (sin el marco del teléfono). */
-export function AppScreen({ state, className }: { state: ScreenState; className?: string }) {
-  const s = screens[state];
+export function AppScreen({ lang, state, className }: { lang: Lang; state: ScreenState; className?: string }) {
+  const { app } = dictionaries[lang];
+  const s = app.screens[state];
+  const Icon = s.icon === "airplay" ? AudioOutputIcon : PowerIcon;
   return (
     <div className={`app-screen ${className ?? ""}`} data-state={state}>
       <div className="app-bar">
-        <span className="app-bar__name">Wallas ON</span>
-        <span className="app-bar__link">Ajustes</span>
+        <span className="app-bar__name">{app.name}</span>
+        <span className="app-bar__link">{app.settings}</span>
       </div>
       <p className="app-title">
         {s.title}
@@ -56,14 +24,18 @@ export function AppScreen({ state, className }: { state: ScreenState; className?
         <span className={`app-title__accent app-title__accent--${state}`}>{s.accent}</span>
       </p>
       <p className="app-body">{s.body}</p>
+      <p className="app-device">
+        <EarIcon />
+        {app.device}
+      </p>
       {s.status && (
         <p className="app-status">
           <span className="dot dot--ok" />
           {s.status}
         </p>
       )}
-      <span className={`app-button app-button--${s.buttonTone}`}>
-        <PowerIcon size={14} />
+      <span className={`app-button app-button--${s.tone}`}>
+        <Icon />
         {s.button}
       </span>
     </div>
@@ -112,10 +84,10 @@ export function PhoneFrame({
   );
 }
 
-export function Phone({ state, className }: { state: ScreenState; className?: string }) {
+export function Phone({ lang, state, className }: { lang: Lang; state: ScreenState; className?: string }) {
   return (
-    <PhoneFrame label={screenLabel(state)} className={className}>
-      <AppScreen state={state} />
+    <PhoneFrame label={screenLabel(lang, state)} className={className}>
+      <AppScreen lang={lang} state={state} />
     </PhoneFrame>
   );
 }

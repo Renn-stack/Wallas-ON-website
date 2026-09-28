@@ -1,30 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { AppScreen, Phone, PhoneFrame, type ScreenState } from "./Phone";
+import { dictionaries, type Lang } from "@/lib/i18n";
+import { AppScreen, Phone, PhoneFrame } from "./Phone";
 
-const steps: { state: ScreenState; label: string; tone: "off" | "warn" | "ok"; text: string }[] = [
-  {
-    state: "off",
-    label: "Apagado",
-    tone: "off",
-    text: "Cuando está en pausa, lo ves al instante. Un toque y vuelve a estar activo.",
-  },
-  {
-    state: "nodevice",
-    label: "Sin dispositivo",
-    tone: "warn",
-    text: "Si tu dispositivo auditivo no está conectado, te lo dice. Y te lleva directo a los ajustes de Bluetooth.",
-  },
-  {
-    state: "active",
-    label: "Activo",
-    tone: "ok",
-    text: "Mientras está activo, la sesión permanece abierta. Aunque no suene nada.",
-  },
-];
-
-export function ProductStates() {
+export function ProductStates({ lang }: { lang: Lang }) {
+  const steps = dictionaries[lang].product.steps;
   const [active, setActive] = useState(0);
   const refs = useRef<(HTMLLIElement | null)[]>([]);
 
@@ -60,7 +41,7 @@ export function ProductStates() {
               </h3>
               <p className="body-lg product__desc">{s.text}</p>
             </div>
-            <Phone state={s.state} className="product__inline-phone" />
+            <Phone lang={lang} state={s.state} className="product__inline-phone" />
           </li>
         ))}
       </ol>
@@ -70,6 +51,7 @@ export function ProductStates() {
           {steps.map((s, i) => (
             <AppScreen
               key={s.state}
+              lang={lang}
               state={s.state}
               className={`app-screen--layer ${i === active ? "is-active" : ""}`}
             />

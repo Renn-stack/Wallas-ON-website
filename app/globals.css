@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Wallas ON — Calma. Editorial. El mensaje primero.
+   Wallas ON - Calma. Editorial. El mensaje primero.
    ========================================================================== */
 
 :root {
@@ -350,6 +350,7 @@ main:focus {
 
 .header__logo {
   min-height: 44px;
+  white-space: nowrap;
   font-size: 17px;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -362,7 +363,44 @@ main:focus {
 .header__nav {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 8px;
+}
+
+@media (max-width: 359px) {
+  .header__inner {
+    gap: 4px;
+  }
+
+  .header__nav .btn--sm {
+    padding-inline: 12px;
+    font-size: 14px;
+  }
+
+  .lang-switch {
+    min-width: 36px;
+  }
+}
+
+@media (min-width: 768px) {
+  .header__nav {
+    gap: 20px;
+  }
+
+  .header__links {
+    margin-right: 8px;
+  }
+}
+
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--fg-2);
 }
 
 .header__links {
@@ -897,7 +935,7 @@ main:focus {
 .app-screen {
   position: absolute;
   inset: 0;
-  padding: 4.1em 1.25em 0;
+  padding: 3.4em 1.2em 0;
 }
 
 .app-screen--layer {
@@ -919,67 +957,87 @@ main:focus {
 }
 
 .app-bar__name {
-  font-size: 0.82em;
+  font-size: 0.72em;
   font-weight: 600;
 }
 
 .app-bar__link {
-  font-size: 0.72em;
+  font-size: 0.68em;
   color: var(--fg-2);
 }
 
+/* Proporciones tomadas de las capturas reales de la app. */
 .app-title {
-  margin-top: 2.9em;
-  font-size: 1.72em;
+  margin-top: 1.5em;
+  font-size: 2.2em;
   font-weight: 600;
   line-height: 1.04;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.045em;
 }
 
 .app-title__accent--off { color: var(--fg-3); }
-.app-title__accent--nodevice { color: var(--warn); }
+.app-title__accent--bluetooth,
+.app-title__accent--output { color: var(--warn); }
 .app-title__accent--active { color: var(--ok); }
 
 .app-body {
   margin-top: 1.1em;
-  font-size: 0.72em;
-  line-height: 1.5;
+  font-size: 0.78em;
+  line-height: 1.6;
   color: var(--fg-2);
-  max-width: 21em;
+  max-width: 17.5em;
+}
+
+.app-device,
+.app-status {
+  display: flex;
+  align-items: center;
+  font-size: 0.7em;
+  line-height: 1.3;
+  color: var(--fg);
+}
+
+.app-device {
+  margin-top: 1.25em;
+  gap: 0.6em;
+}
+
+.app-device svg {
+  flex: none;
+  width: 1em;
+  height: 1em;
+  color: var(--fg-2);
 }
 
 .app-status {
-  margin-top: 1.5em;
-  display: flex;
-  align-items: center;
-  gap: 0.55em;
-  font-size: 0.68em;
-  font-weight: 500;
+  margin-top: 1.25em;
+  gap: 0.75em;
 }
 
 .app-status .dot {
-  width: 0.55em;
-  height: 0.55em;
+  width: 0.6em;
+  height: 0.6em;
 }
 
 .app-button {
   position: absolute;
-  left: 1.3em;
-  right: 1.3em;
-  bottom: 2.7em;
-  height: 3.5em;
+  left: 1.17em;
+  right: 1.17em;
+  bottom: 3.1em;
+  height: 3.85em;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6em;
+  gap: 0.55em;
   border-radius: var(--radius-pill);
-  font-size: 0.78em;
+  font-size: 0.83em;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .app-button svg {
-  width: 1em;
-  height: 1em;
+  width: 1.05em;
+  height: 1.05em;
 }
 
 .app-button--light {
@@ -1010,6 +1068,16 @@ main:focus {
   max-width: 720px;
   display: grid;
   gap: 48px;
+}
+
+.card__text {
+  margin-top: 12px;
+  color: var(--fg-2);
+}
+
+.text-link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .card {
