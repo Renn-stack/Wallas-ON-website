@@ -332,6 +332,18 @@ main:focus {
   gap: 24px;
 }
 
+.logo-dot {
+  fill: var(--ok);
+}
+
+.header__logo,
+.footer__name,
+.final__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .header__logo {
   font-size: 17px;
   font-weight: 600;

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { DownloadButton } from "@/components/Chrome";
 import { ArrowDownIcon, ChevronRightIcon } from "@/components/Icons";
+import { LogoMark } from "@/components/Logo";
 import { Phone } from "@/components/Phone";
 import { ProductStates } from "@/components/ProductStates";
 import { site } from "@/lib/site";
@@ -196,7 +197,10 @@ export default function Home() {
       {/* CTA final */}
       <section id="descargar" className="section final" aria-labelledby="final-title">
         <div className="container" data-reveal>
-          <p className="eyebrow">Wallas ON</p>
+          <p className="eyebrow final__brand">
+            <LogoMark size={28} />
+            Wallas ON
+          </p>
           <h2 id="final-title" className="display">
             Mantén tu audio
             <br />

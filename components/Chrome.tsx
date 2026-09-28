@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
 import { PowerIcon } from "./Icons";
+import { LogoMark } from "./Logo";
 import { Year } from "./Year";
 
 export function Header() {
@@ -8,6 +9,7 @@ export function Header() {
     <header className="header">
       <div className="container header__inner">
         <Link href="/" className="header__logo" aria-label="Wallas ON, inicio">
+          <LogoMark size={20} />
           Wallas ON
         </Link>
         <nav aria-label="Principal" className="header__nav">
@@ -30,7 +32,10 @@ export function Footer() {
     <footer className="footer">
       <div className="container footer__inner">
         <div className="footer__brand">
-          <p className="footer__name">Wallas ON</p>
+          <p className="footer__name">
+            <LogoMark size={18} />
+            Wallas ON
+          </p>
           <p className="footer__eco">Parte del ecosistema Wallas.</p>
         </div>
         <nav aria-label="Pie de página">
