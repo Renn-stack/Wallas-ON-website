@@ -41,7 +41,7 @@ export function pageMetadata(
       languages: { es: routes.es[key], en: routes.en[key] },
     },
     openGraph: {
-      title: page ? `${page.title} · Wallas ON` : t.title,
+      title: page ? `${page.title} · Wallas On` : t.title,
       description,
       type: "website",
       locale: t.locale,

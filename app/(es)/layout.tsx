@@ -7,7 +7,7 @@ const t = dictionaries.es.meta;
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
-  title: { default: t.title, template: "%s · Wallas ON" },
+  title: { default: t.title, template: "%s · Wallas On" },
   description: t.description,
 };
 

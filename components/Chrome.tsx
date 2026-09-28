@@ -14,7 +14,7 @@ export function Header({ lang }: { lang: Lang }) {
       <div className="container header__inner">
         <Link href={r.home} className="header__logo" aria-label={t.a11y.home}>
           <LogoMark size={20} />
-          Wallas ON
+          Wallas On
         </Link>
         <nav aria-label={t.a11y.nav} className="header__nav">
           <ul className="header__links">
@@ -41,7 +41,7 @@ export function Footer({ lang }: { lang: Lang }) {
         <div className="footer__brand">
           <p className="footer__name">
             <LogoMark size={18} />
-            Wallas ON
+            Wallas On
           </p>
           <p className="footer__eco">{t.footer.eco}</p>
         </div>
@@ -53,7 +53,7 @@ export function Footer({ lang }: { lang: Lang }) {
           </ul>
         </nav>
         <p className="footer__copy">
-          © <Year /> Wallas ON
+          © <Year /> Wallas On
         </p>
       </div>
     </footer>

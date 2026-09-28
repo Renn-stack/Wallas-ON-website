@@ -181,7 +181,7 @@ export function HomePage({ lang }: { lang: Lang }) {
         <div className="container" data-reveal>
           <p className="eyebrow final__brand">
             <LogoMark size={28} />
-            Wallas ON
+            Wallas On
           </p>
           <h2 id="final-title" className="display">
             {t.final.title}

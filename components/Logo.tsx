@@ -1,4 +1,4 @@
-/** Marca de Wallas ON: la W en color de texto y el punto de estado en verde. */
+/** Marca de Wallas On: la W en color de texto y el punto de estado en verde. */
 export function LogoMark({ size = 24, className }: { size?: number; className?: string }) {
   return (
     <svg

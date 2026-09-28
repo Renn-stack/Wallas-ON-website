@@ -4,7 +4,7 @@ import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "404 · Wallas ON",
+  title: "404 · Wallas On",
   description: "Página no encontrada · Page not found",
 };
 
