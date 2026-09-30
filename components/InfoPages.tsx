@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { dictionaries, routes, type Lang } from "@/lib/i18n";
 import { site, verifiedDevices } from "@/lib/site";
-import { ChevronRightIcon } from "./Icons";
+import { ChevronRightIcon, MailIcon } from "./Icons";
 
 export function CompatPage({ lang }: { lang: Lang }) {
   const t = dictionaries[lang].compatPage;
@@ -58,7 +58,29 @@ export function PrivacyPage({ lang }: { lang: Lang }) {
             <br />
             <span className="accent-muted">{t.accent}</span>
           </h1>
-          <p className="body-lg">{t.intro}</p>
+          <p className="body-lg policy__lead">{t.intro}</p>
+          <p className="label">{t.updated}</p>
+        </div>
+
+        <div className="page__body policy">
+          {t.sections.map((sec) => (
+            <section key={sec.title} className="policy__section">
+              <h2 className="policy__title">{sec.title}</h2>
+              <div className="policy__body">
+                {sec.body.map((p) => (
+                  <p key={p}>{p}</p>
+                ))}
+              </div>
+            </section>
+          ))}
+          {site.supportEmail && (
+            <p className="policy__contact">
+              {t.contactLabel}{" "}
+              <a href={`mailto:${site.supportEmail}`} className="text-link">
+                {site.supportEmail}
+              </a>
+            </p>
+          )}
         </div>
       </div>
     </section>
@@ -82,33 +104,41 @@ export function SupportPage({ lang }: { lang: Lang }) {
         </div>
 
         <div className="page__body">
-          <div className="faq">
-            {t.faqs.map((f) => (
-              <details key={f.q}>
-                <summary>
-                  {f.q}
-                  <ChevronRightIcon />
-                </summary>
-                <p>
-                  {f.a}{" "}
-                  {f.link && (
-                    <Link href={routes[lang][f.link]} className="text-link">
-                      {cta.compat}
-                    </Link>
-                  )}
-                </p>
-              </details>
-            ))}
-          </div>
-
           {site.supportEmail && (
-            <div className="prose">
+            <div className="card contact">
               <h2 className="h2">{t.contact}</h2>
-              <p className="body-lg">
-                <a href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a>
-              </p>
+              <p className="contact__text">{t.contactText}</p>
+              <p className="contact__email">{site.supportEmail}</p>
+              <div className="actions">
+                <a href={`mailto:${site.supportEmail}`} className="btn btn--primary">
+                  <MailIcon />
+                  {t.contactCta}
+                </a>
+              </div>
             </div>
           )}
+
+          <div>
+            <h2 className="policy__title faq__title">{t.faqTitle}</h2>
+            <div className="faq">
+              {t.faqs.map((f) => (
+                <details key={f.q}>
+                  <summary>
+                    {f.q}
+                    <ChevronRightIcon />
+                  </summary>
+                  <p>
+                    {f.a}{" "}
+                    {f.link && (
+                      <Link href={routes[lang][f.link]} className="text-link">
+                        {cta.compat}
+                      </Link>
+                    )}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

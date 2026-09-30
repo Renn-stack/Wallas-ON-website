@@ -192,23 +192,64 @@ const es = {
   },
   privacyPage: {
     title: "Privacidad",
-    description: "Política de privacidad de Wallas On.",
+    description: "Política de privacidad de Wallas On. La app no recopila datos personales.",
     heading: "Tu privacidad,",
     accent: "con claridad.",
-    intro:
-      "Estamos preparando la política de privacidad completa de Wallas On. La publicaremos aquí antes del lanzamiento.",
+    intro: "Wallas On no recopila, guarda ni comparte datos personales.",
+    updated: "Última actualización: 29 de septiembre de 2026",
+    contactLabel: "Preguntas sobre privacidad:",
+    sections: [
+      {
+        title: "Qué datos recopilamos",
+        body: ["Ninguno. Wallas On no pide registro, no usa cuentas y no recopila información personal."],
+      },
+      {
+        title: "Audio",
+        body: [
+          "La app mantiene abierta una transmisión de audio Bluetooth hacia tu dispositivo auditivo. No graba, guarda ni envía audio.",
+        ],
+      },
+      {
+        title: "Lo que se queda en tu iPhone",
+        body: [
+          "Para mostrarte su estado, la app consulta en tu iPhone si el Bluetooth está encendido y por dónde sale el audio, por ejemplo el nombre de tu dispositivo auditivo. Esa información se usa en el momento y no sale de tu iPhone.",
+          "Tus ajustes, como el idioma o el aviso de inactividad, se guardan solo en tu iPhone.",
+        ],
+      },
+      {
+        title: "Analítica y terceros",
+        body: [
+          "Wallas On no usa herramientas de analítica, publicidad ni seguimiento, y no comparte información con terceros.",
+        ],
+      },
+      {
+        title: "Este sitio web",
+        body: ["Este sitio no usa cookies ni herramientas de analítica."],
+      },
+      {
+        title: "Cambios",
+        body: ["Si esta política cambia, publicaremos la nueva versión en esta página con su fecha de actualización."],
+      },
+    ] as { title: string; body: string[] }[],
   },
   supportPage: {
     title: "Soporte",
     description: "Ayuda y preguntas frecuentes sobre Wallas On.",
     heading: "¿Necesitas",
     accent: "ayuda?",
-    intro: "Respuestas breves a las preguntas más comunes.",
+    intro: "Escríbenos o revisa las respuestas a las preguntas más comunes.",
     contact: "Escríbenos.",
+    contactText: "Respondemos personalmente. Cuéntanos qué pasa y, si puedes, qué dispositivo auditivo usas.",
+    contactCta: "Escribir a soporte",
+    faqTitle: "Preguntas frecuentes",
     faqs: [
       {
         q: "¿Qué hace Wallas On?",
-        a: "Mantiene abierta la sesión de audio de tu dispositivo auditivo, incluso cuando no suena nada. Así se evitan interrupciones del streaming durante los silencios.",
+        a: "Mantiene abierta una sola transmisión de audio Bluetooth de forma continua. Así tu procesador de sonido no entra y sale del modo streaming a cada rato.",
+      },
+      {
+        q: "¿Qué problema resuelve?",
+        a: "Cada vez que una app reproduce un sonido corto, como una pronunciación del traductor, una indicación del mapa o un aviso de mensaje, el procesador abre el stream con un tono, baja el sonido del entorno, reproduce el audio y vuelve a cerrarlo. Eso puede pasar decenas de veces por hora. Con Wallas On la transmisión se queda abierta y esos cortes desaparecen.",
       },
       {
         q: "¿Cómo lo activo?",
@@ -376,22 +417,62 @@ const en: Dict = {
   },
   privacyPage: {
     title: "Privacy",
-    description: "Wallas On privacy policy.",
+    description: "Wallas On privacy policy. The app doesn’t collect personal data.",
     heading: "Your privacy,",
     accent: "made clear.",
-    intro: "We’re preparing the full Wallas On privacy policy. We’ll publish it here before launch.",
+    intro: "Wallas On doesn’t collect, store or share personal data.",
+    updated: "Last updated: September 29, 2026",
+    contactLabel: "Privacy questions:",
+    sections: [
+      {
+        title: "What data we collect",
+        body: ["None. Wallas On doesn’t ask you to sign up, doesn’t use accounts and doesn’t collect personal information."],
+      },
+      {
+        title: "Audio",
+        body: [
+          "The app keeps a Bluetooth audio stream open to your hearing device. It doesn’t record, store or send audio.",
+        ],
+      },
+      {
+        title: "What stays on your iPhone",
+        body: [
+          "To show you its status, the app checks on your iPhone whether Bluetooth is on and where audio is going, for example your hearing device’s name. That information is used in the moment and never leaves your iPhone.",
+          "Your settings, such as language or the inactivity notice, are stored only on your iPhone.",
+        ],
+      },
+      {
+        title: "Analytics and third parties",
+        body: ["Wallas On doesn’t use analytics, advertising or tracking tools, and doesn’t share information with third parties."],
+      },
+      {
+        title: "This website",
+        body: ["This site doesn’t use cookies or analytics tools."],
+      },
+      {
+        title: "Changes",
+        body: ["If this policy changes, we’ll publish the new version on this page with its update date."],
+      },
+    ],
   },
   supportPage: {
     title: "Support",
     description: "Help and frequently asked questions about Wallas On.",
     heading: "Need",
     accent: "help?",
-    intro: "Short answers to the most common questions.",
+    intro: "Write to us or check the answers to the most common questions.",
     contact: "Write to us.",
+    contactText: "We reply personally. Tell us what’s happening and, if you can, which hearing device you use.",
+    contactCta: "Email support",
+    faqTitle: "Frequently asked questions",
     faqs: [
       {
         q: "What does Wallas On do?",
-        a: "It keeps your hearing device’s audio session open, even when nothing is playing. That helps avoid streaming dropouts during silence.",
+        a: "It keeps a single Bluetooth audio stream open continuously, so your sound processor doesn’t keep switching in and out of streaming mode.",
+      },
+      {
+        q: "What problem does it solve?",
+        a: "Every time an app plays a short sound, like a translation, a map direction or a message alert, the processor opens the stream with a tone, lowers the surrounding sound, plays the audio and closes it again. That can happen dozens of times an hour. With Wallas On the stream stays open and those interruptions go away.",
       },
       {
         q: "How do I turn it on?",

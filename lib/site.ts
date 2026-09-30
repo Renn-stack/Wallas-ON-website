@@ -9,7 +9,7 @@ export const site = {
   /** Plataforma de lanzamiento. Se muestra bajo el CTA final. */
   platform: "iPhone",
   /** Correo de soporte. Si es `null`, la página de soporte no muestra contacto. */
-  supportEmail: null as string | null,
+  supportEmail: "wallasponce@gmail.com" as string | null,
 };
 
 /**

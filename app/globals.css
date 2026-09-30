@@ -1109,6 +1109,82 @@ main:focus {
   border-top: 1px solid var(--line);
 }
 
+.faq__title {
+  margin-bottom: 20px;
+}
+
+/* ---------- Contacto ---------- */
+
+.contact {
+  display: grid;
+  gap: 12px;
+  padding: 32px 24px;
+}
+
+.contact__text {
+  color: var(--fg-2);
+  max-width: 48ch;
+}
+
+.contact__email {
+  font-family: var(--mono);
+  font-size: 15px;
+  color: var(--fg);
+  overflow-wrap: anywhere;
+}
+
+.contact .actions {
+  margin-top: 8px;
+}
+
+/* ---------- Política ---------- */
+
+.policy__lead {
+  color: var(--fg);
+}
+
+.policy {
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.policy__section {
+  display: grid;
+  gap: 12px;
+  padding-block: 32px;
+  border-bottom: 1px solid var(--line);
+}
+
+.policy__title {
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.policy__body {
+  display: grid;
+  gap: 12px;
+  color: var(--fg-2);
+  max-width: 60ch;
+}
+
+.policy__contact {
+  padding-top: 32px;
+  color: var(--fg-2);
+}
+
+@media (min-width: 768px) {
+  .policy__section {
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 48px;
+  }
+
+  .contact {
+    padding: 40px;
+  }
+}
+
 .faq details {
   border-bottom: 1px solid var(--line);
 }
