@@ -4,6 +4,8 @@
  */
 export const site = {
   name: "Wallas On",
+  /** Dirección pública del sitio. Se puede sobrescribir con NEXT_PUBLIC_SITE_URL. */
+  url: "https://wallas-on-website.vercel.app",
   /** Enlace a la App Store. Mientras sea `null`, el CTA final se muestra como "Próximamente". */
   downloadUrl: null as string | null,
   /** Plataforma de lanzamiento. Se muestra bajo el CTA final. */

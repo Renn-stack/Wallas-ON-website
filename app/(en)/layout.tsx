@@ -1,12 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import { SiteShell } from "@/components/SiteShell";
 import { dictionaries } from "@/lib/i18n";
+import { site } from "@/lib/site";
 import "../globals.css";
 
 const t = dictionaries.en.meta;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? site.url),
   title: { default: t.title, template: "%s · Wallas On" },
   description: t.description,
 };
