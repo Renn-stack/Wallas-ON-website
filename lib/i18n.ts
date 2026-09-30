@@ -64,16 +64,24 @@ const es = {
   },
   problem: {
     eyebrow: "El problema",
-    title: "El silencio no debería",
-    accent: "desconectarte.",
-    p1: "Algunos dispositivos auditivos pueden salir del streaming cuando el audio se detiene o hay momentos de silencio.",
-    p2: "Wallas On mantiene la sesión abierta para que no tengas que pensar constantemente en volver a conectarla.",
+    title: "Cada sonido corto,",
+    accent: "una interrupción.",
+    intro:
+      "Cada vez que una app reproduce un sonido corto, como una pronunciación del traductor, una indicación del mapa, un aviso de mensaje o un video breve, tu procesador de sonido:",
+    steps: [
+      "Abre el stream y suena un tono de activación.",
+      "Baja el sonido del entorno.",
+      "Reproduce el audio.",
+      "Cierra el stream y el entorno vuelve a su volumen.",
+    ],
+    repeat: "Eso se repite decenas de veces por hora. Y cada vez son uno o dos segundos de confusión.",
+    solution:
+      "Wallas On mantiene abierta una sola transmisión de audio. El stream no se cierra entre un sonido y otro, así que desaparecen los tonos y los cambios de volumen.",
     without: "Sin Wallas On",
     with: "Con Wallas On",
-    legend: ["Audio", "silencio", "interrupción", "audio"],
-    status: "Sesión activa incluso durante el silencio.",
+    legend: { ambient: "Entorno", brief: "Streaming breve", continuous: "Continuo" },
     caption:
-      "Sin Wallas On: audio, silencio, interrupción y de nuevo audio. Con Wallas On: el audio continúa sin cortes y la sesión sigue activa incluso durante el silencio.",
+      "Sin Wallas On: el sonido del entorno se interrumpe una y otra vez con tramos breves de streaming. Con Wallas On: el streaming es continuo.",
   },
   how: {
     eyebrow: "Cómo funciona",
@@ -134,8 +142,8 @@ const es = {
   final: {
     title: "Mantén tu audio",
     accent: "activo.",
-    available: (p: string) => `Disponible para ${p}.`,
-    soon: (p: string) => `Próximamente para ${p}.`,
+    available: (p: string) => `Gratis. Disponible para ${p}.`,
+    soon: (p: string) => `Gratis. Próximamente para ${p}.`,
   },
   footer: { eco: "Parte del ecosistema Wallas.", compat: "Compatibilidad", privacy: "Privacidad", support: "Soporte" },
   app: {
@@ -206,7 +214,7 @@ const es = {
       {
         title: "Audio",
         body: [
-          "La app mantiene abierta una transmisión de audio Bluetooth hacia tu dispositivo auditivo. No graba, guarda ni envía audio.",
+          "La app mantiene abierta una transmisión de audio Bluetooth hacia tu dispositivo auditivo. No usa el micrófono y no graba, guarda ni envía audio.",
         ],
       },
       {
@@ -217,9 +225,9 @@ const es = {
         ],
       },
       {
-        title: "Analítica y terceros",
+        title: "Analítica, publicidad y terceros",
         body: [
-          "Wallas On no usa herramientas de analítica, publicidad ni seguimiento, y no comparte información con terceros.",
+          "Wallas On es gratuita y no tiene publicidad. No usa herramientas de analítica, informes de errores ni seguimiento, y no comparte información con terceros.",
         ],
       },
       {
@@ -299,16 +307,24 @@ const en: Dict = {
   },
   problem: {
     eyebrow: "The problem",
-    title: "Silence shouldn’t",
-    accent: "disconnect you.",
-    p1: "Some hearing devices can drop out of streaming when audio stops or during moments of silence.",
-    p2: "Wallas On keeps the session open, so you don’t have to keep thinking about reconnecting.",
+    title: "Every short sound,",
+    accent: "an interruption.",
+    intro:
+      "Every time an app plays a short sound, like a translation, a map direction, a message alert or a short video, your sound processor:",
+    steps: [
+      "Opens the stream and plays an activation tone.",
+      "Lowers the surrounding sound.",
+      "Plays the audio.",
+      "Closes the stream and the surrounding sound comes back.",
+    ],
+    repeat: "That happens dozens of times an hour. And every time, it’s a second or two of confusion.",
+    solution:
+      "Wallas On keeps a single audio stream open. The stream doesn’t close between sounds, so the tones and volume changes go away.",
     without: "Without Wallas On",
     with: "With Wallas On",
-    legend: ["Audio", "silence", "dropout", "audio"],
-    status: "Session stays active, even during silence.",
+    legend: { ambient: "Surroundings", brief: "Brief streaming", continuous: "Continuous" },
     caption:
-      "Without Wallas On: audio, silence, a dropout, then audio again. With Wallas On: audio continues without cuts and the session stays active, even during silence.",
+      "Without Wallas On: the surrounding sound is interrupted again and again by brief streaming. With Wallas On: streaming is continuous.",
   },
   how: {
     eyebrow: "How it works",
@@ -359,8 +375,8 @@ const en: Dict = {
   final: {
     title: "Keep your audio",
     accent: "active.",
-    available: (p: string) => `Available for ${p}.`,
-    soon: (p: string) => `Coming soon for ${p}.`,
+    available: (p: string) => `Free. Available for ${p}.`,
+    soon: (p: string) => `Free. Coming soon for ${p}.`,
   },
   footer: { eco: "Part of the Wallas ecosystem.", compat: "Compatibility", privacy: "Privacy", support: "Support" },
   app: {
@@ -431,7 +447,7 @@ const en: Dict = {
       {
         title: "Audio",
         body: [
-          "The app keeps a Bluetooth audio stream open to your hearing device. It doesn’t record, store or send audio.",
+          "The app keeps a Bluetooth audio stream open to your hearing device. It doesn’t use the microphone and doesn’t record, store or send audio.",
         ],
       },
       {
@@ -442,8 +458,10 @@ const en: Dict = {
         ],
       },
       {
-        title: "Analytics and third parties",
-        body: ["Wallas On doesn’t use analytics, advertising or tracking tools, and doesn’t share information with third parties."],
+        title: "Analytics, advertising and third parties",
+        body: [
+          "Wallas On is free and has no ads. It doesn’t use analytics, crash reporting or tracking tools, and doesn’t share information with third parties.",
+        ],
       },
       {
         title: "This website",

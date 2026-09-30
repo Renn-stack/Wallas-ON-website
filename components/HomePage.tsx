@@ -7,10 +7,20 @@ import { LogoMark } from "./Logo";
 import { Phone } from "./Phone";
 import { ProductStates } from "./ProductStates";
 
+/** Tramos del esquema "Sin Wallas On": entorno interrumpido por streaming breve. */
+const withoutBlocks: ["ambient" | "brief", number][] = [
+  ["ambient", 7],
+  ["brief", 3],
+  ["ambient", 7],
+  ["brief", 2.8],
+  ["ambient", 6],
+  ["brief", 4],
+  ["ambient", 7],
+];
+
 export function HomePage({ lang }: { lang: Lang }) {
   const t = dictionaries[lang];
   const a = anchors[lang];
-  const flex = [3, 2, 2, 3];
 
   return (
     <>
@@ -51,8 +61,17 @@ export function HomePage({ lang }: { lang: Lang }) {
               </h2>
             </div>
             <div className="prose">
-              <p className="body-lg">{t.problem.p1}</p>
-              <p className="body-lg">{t.problem.p2}</p>
+              <p className="body-lg">{t.problem.intro}</p>
+              <ol className="cycle">
+                {t.problem.steps.map((step, i) => (
+                  <li key={i}>
+                    <span className="cycle__num">{String(i + 1).padStart(2, "0")}</span>
+                    {step}
+                  </li>
+                ))}
+              </ol>
+              <p className="body-lg problem__repeat">{t.problem.repeat}</p>
+              <p className="body-lg">{t.problem.solution}</p>
             </div>
           </div>
 
@@ -61,31 +80,25 @@ export function HomePage({ lang }: { lang: Lang }) {
 
             <div className="flow__row" aria-hidden="true">
               <p className="flow__label">{t.problem.without}</p>
-              <div className="flow__track">
-                <span className="seg seg--audio" style={{ flex: 3 }} />
-                <span className="seg seg--silence" style={{ flex: 2 }} />
-                <span className="seg seg--break" style={{ flex: 2 }} />
-                <span className="seg seg--audio" style={{ flex: 3 }} />
-              </div>
-              <ol className="flow__legend">
-                {t.problem.legend.map((word, i) => (
-                  <li key={i} style={{ flex: flex[i] }} className={i === 2 ? "flow__warn" : undefined}>
-                    {word}
-                  </li>
+              <div className="flow__bar">
+                {withoutBlocks.map(([kind, grow], i) => (
+                  <span key={i} className={`block block--${kind}`} style={{ flexGrow: grow }} />
                 ))}
-              </ol>
+              </div>
             </div>
 
             <div className="flow__row" aria-hidden="true">
-              <p className="flow__label flow__label--on">{t.problem.with}</p>
-              <div className="flow__track">
-                <span className="seg seg--on" style={{ flex: 1 }} />
+              <p className="flow__label">{t.problem.with}</p>
+              <div className="flow__bar">
+                <span className="block block--continuous" style={{ flexGrow: 1 }} />
               </div>
-              <p className="status-label flow__status">
-                <span className="dot dot--ok" />
-                {t.problem.status}
-              </p>
             </div>
+
+            <ul className="flow__legend" aria-hidden="true">
+              <li><span className="block block--ambient" />{t.problem.legend.ambient}</li>
+              <li><span className="block block--brief" />{t.problem.legend.brief}</li>
+              <li><span className="block block--continuous" />{t.problem.legend.continuous}</li>
+            </ul>
           </figure>
         </div>
       </section>
