@@ -4,7 +4,6 @@ import { site } from "@/lib/site";
 import { PowerIcon } from "./Icons";
 import { LangSwitch } from "./LangSwitch";
 import { LogoMark } from "./Logo";
-import { Year } from "./Year";
 
 export function Header({ lang }: { lang: Lang }) {
   const t = dictionaries[lang];
@@ -52,9 +51,7 @@ export function Footer({ lang }: { lang: Lang }) {
             <li><Link href={r.support}>{t.footer.support}</Link></li>
           </ul>
         </nav>
-        <p className="footer__copy">
-          © <Year /> Wallas On
-        </p>
+        <p className="footer__copy">© 2026 Wallas</p>
       </div>
     </footer>
   );
