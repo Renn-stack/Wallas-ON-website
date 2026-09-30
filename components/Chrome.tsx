@@ -19,7 +19,7 @@ export function Header({ lang }: { lang: Lang }) {
         <nav aria-label={t.a11y.nav} className="header__nav">
           <ul className="header__links">
             <li><Link href={anchorHref(lang, "how")}>{t.nav.how}</Link></li>
-            <li><Link href={anchorHref(lang, "compat")}>{t.nav.compat}</Link></li>
+            <li><Link href={r.compat}>{t.nav.compat}</Link></li>
             <li><Link href={r.support}>{t.nav.support}</Link></li>
           </ul>
           <LangSwitch lang={lang} label={t.a11y.switchTo} />

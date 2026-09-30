@@ -13,8 +13,8 @@ export type RouteKey = keyof (typeof routes)["es"];
 
 /** Anclas de las secciones de la home en cada idioma. */
 export const anchors = {
-  es: { how: "como-funciona", compat: "compatibilidad", download: "descargar" },
-  en: { how: "how-it-works", compat: "compatibility", download: "download" },
+  es: { how: "como-funciona", download: "descargar" },
+  en: { how: "how-it-works", download: "download" },
 } as const;
 
 export function anchorHref(lang: Lang, key: keyof (typeof anchors)["es"]) {
@@ -124,13 +124,6 @@ const es = {
         text: "Mientras está activo, la sesión permanece abierta. Aunque no suene nada.",
       },
     ] as { state: ScreenState; label: string; tone: "off" | "warn" | "ok"; text: string }[],
-  },
-  compat: {
-    eyebrow: "Compatibilidad",
-    title: "Hecho para escuchar",
-    accent: "a tu manera.",
-    p1: "Wallas On está pensado para personas que utilizan dispositivos auditivos con streaming de audio compatible.",
-    p2: "Consulta los dispositivos que hemos verificado.",
   },
   philosophy: {
     eyebrow: "Filosofía",
@@ -274,8 +267,7 @@ const es = {
       { q: "¿Cómo lo detengo?", a: "Abre Wallas On y toca Detener. La sesión se cierra en ese momento." },
       {
         q: "¿Es compatible con mi dispositivo?",
-        a: "Wallas On está pensado para dispositivos auditivos con streaming de audio compatible. Consulta la lista de dispositivos verificados.",
-        link: "compat" as RouteKey,
+        a: "Wallas On está pensado para dispositivos auditivos con streaming de audio compatible.",
       },
     ] as { q: string; a: string; link?: RouteKey }[],
   },
@@ -357,13 +349,6 @@ const en: Dict = {
       },
       { state: "active", label: "Active", tone: "ok", text: "While it’s active, the session stays open. Even when nothing is playing." },
     ],
-  },
-  compat: {
-    eyebrow: "Compatibility",
-    title: "Made for listening",
-    accent: "your way.",
-    p1: "Wallas On is designed for people who use hearing devices with compatible audio streaming.",
-    p2: "See the devices we’ve verified.",
   },
   philosophy: {
     eyebrow: "Philosophy",
@@ -507,8 +492,7 @@ const en: Dict = {
       { q: "How do I stop it?", a: "Open Wallas On and tap Stop. The session closes right away." },
       {
         q: "Does it work with my device?",
-        a: "Wallas On is designed for hearing devices with compatible audio streaming. Check the list of verified devices.",
-        link: "compat",
+        a: "Wallas On is designed for hearing devices with compatible audio streaming.",
       },
     ],
   },

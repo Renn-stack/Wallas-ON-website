@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { anchors, anchorHref, dictionaries, routes, type Lang } from "@/lib/i18n";
+import { anchors, anchorHref, dictionaries, type Lang } from "@/lib/i18n";
 import { site } from "@/lib/site";
 import { DownloadButton } from "./Chrome";
-import { ArrowDownIcon, ChevronRightIcon } from "./Icons";
+import { ArrowDownIcon } from "./Icons";
 import { LogoMark } from "./Logo";
 import { Phone } from "./Phone";
 import { ProductStates } from "./ProductStates";
@@ -140,30 +140,6 @@ export function HomePage({ lang }: { lang: Lang }) {
             </h2>
           </div>
           <ProductStates lang={lang} />
-        </div>
-      </section>
-
-      {/* Compatibilidad */}
-      <section id={a.compat} className="section" aria-labelledby="compat-title">
-        <div className="container split" data-reveal>
-          <div>
-            <p className="eyebrow">{t.compat.eyebrow}</p>
-            <h2 id="compat-title" className="h1">
-              {t.compat.title}
-              <br />
-              <span className="accent-muted">{t.compat.accent}</span>
-            </h2>
-          </div>
-          <div className="prose">
-            <p className="body-lg">{t.compat.p1}</p>
-            <p className="body-lg">{t.compat.p2}</p>
-            <div className="actions">
-              <Link href={routes[lang].compat} className="btn btn--outline">
-                {t.cta.compat}
-                <ChevronRightIcon />
-              </Link>
-            </div>
-          </div>
         </div>
       </section>
 
