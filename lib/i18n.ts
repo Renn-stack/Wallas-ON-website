@@ -5,8 +5,8 @@ export type ScreenState = "off" | "bluetooth" | "output" | "active";
 
 /** Rutas equivalentes en cada idioma. */
 export const routes = {
-  es: { home: "/", compat: "/compatibilidad", support: "/soporte", privacy: "/privacidad" },
-  en: { home: "/en", compat: "/en/compatibility", support: "/en/support", privacy: "/en/privacy" },
+  es: { home: "/", compat: "/compatibilidad", support: "/soporte", privacy: "/privacidad", terms: "/terminos" },
+  en: { home: "/en", compat: "/en/compatibility", support: "/en/support", privacy: "/en/privacy", terms: "/en/terms" },
 } as const;
 
 export type RouteKey = keyof (typeof routes)["es"];
@@ -138,7 +138,7 @@ const es = {
     available: (p: string) => `Gratis. Disponible para ${p}.`,
     soon: (p: string) => `Gratis. Próximamente para ${p}.`,
   },
-  footer: { eco: "Parte del ecosistema Wallas.", compat: "Compatibilidad", privacy: "Privacidad", support: "Soporte" },
+  footer: { eco: "Parte del ecosistema Wallas.", compat: "Compatibilidad", privacy: "Privacidad", terms: "Términos de uso", support: "Soporte" },
   app: {
     name: "Wallas On",
     settings: "Ajustes",
@@ -230,6 +230,67 @@ const es = {
       {
         title: "Cambios",
         body: ["Si esta política cambia, publicaremos la nueva versión en esta página con su fecha de actualización."],
+      },
+    ] as { title: string; body: string[] }[],
+  },
+  termsPage: {
+    title: "Términos de uso",
+    description: "Términos de uso de Wallas On. Wallas On es una utilidad de audio, no un dispositivo médico.",
+    heading: "Términos",
+    accent: "de uso.",
+    intro: "Al descargar o usar Wallas On aceptas estos términos. Si no estás de acuerdo, no uses la app.",
+    updated: "Última actualización: 7 de noviembre de 2026",
+    contactLabel: "Preguntas sobre estos términos:",
+    sections: [
+      {
+        title: "Qué es Wallas On",
+        body: [
+          "Wallas On es una utilidad de audio que mantiene abierta la transmisión de audio Bluetooth de tu iPhone mientras usas otras apps, para que tu dispositivo no entre y salga del modo streaming entre un sonido y otro.",
+          "La conexión con tu dispositivo la maneja iOS. Wallas On no se comunica con tu dispositivo auditivo, no lo configura y no cambia ninguno de sus ajustes.",
+        ],
+      },
+      {
+        title: "Aviso médico",
+        body: [
+          "Wallas On no es un dispositivo médico. No diagnostica, no trata, no mide ni ajusta la audición, y no sustituye las indicaciones de tu médico o audiólogo.",
+          "Consulta siempre a tu médico o audiólogo además de usar esta app y antes de tomar cualquier decisión médica.",
+        ],
+      },
+      {
+        title: "Uso bajo tu responsabilidad",
+        body: [
+          "Usas Wallas On bajo tu propia responsabilidad. No dependas de la app en situaciones en las que no escuchar un sonido pueda ponerte en riesgo, por ejemplo al manejar o al cruzar la calle.",
+          "La forma en que cada dispositivo maneja el sonido depende de su fabricante y de su firmware, así que el resultado puede variar.",
+        ],
+      },
+      {
+        title: "Dispositivos y países",
+        body: [
+          "Wallas On se ha probado con el procesador de sonido Cochlear Nucleus 7 (CP1000) y está disponible únicamente en Estados Unidos, Canadá, México, Brasil, Japón y Australia, donde ese dispositivo cuenta con autorización regulatoria.",
+          "Usa Wallas On solo con dispositivos auditivos aprobados para su uso en tu país. Wallas On no está afiliada, patrocinada ni respaldada por Cochlear ni por ningún otro fabricante de dispositivos auditivos. Las marcas mencionadas pertenecen a sus respectivos dueños.",
+        ],
+      },
+      {
+        title: "Sin garantías",
+        body: [
+          "Wallas On se ofrece “tal cual” y “según disponibilidad”. En la medida en que la ley lo permita, no garantizamos que la app funcione sin interrupciones, sin errores o con todos los dispositivos.",
+        ],
+      },
+      {
+        title: "Limitación de responsabilidad",
+        body: [
+          "En la medida en que la ley lo permita, Wallas no será responsable de daños directos o indirectos que resulten del uso o de la imposibilidad de usar la app. Nada en estos términos limita los derechos que la ley de tu país te reconoce como consumidor.",
+        ],
+      },
+      {
+        title: "Licencia",
+        body: [
+          "Además de estos términos, tu uso de Wallas On se rige por el Contrato de Licencia de Usuario Final estándar de Apple para apps de la App Store.",
+        ],
+      },
+      {
+        title: "Cambios",
+        body: ["Si estos términos cambian, publicaremos la nueva versión en esta página con su fecha de actualización."],
       },
     ] as { title: string; body: string[] }[],
   },
@@ -363,7 +424,7 @@ const en: Dict = {
     available: (p: string) => `Free. Available for ${p}.`,
     soon: (p: string) => `Free. Coming soon for ${p}.`,
   },
-  footer: { eco: "Part of the Wallas ecosystem.", compat: "Compatibility", privacy: "Privacy", support: "Support" },
+  footer: { eco: "Part of the Wallas ecosystem.", compat: "Compatibility", privacy: "Privacy", terms: "Terms of Use", support: "Support" },
   app: {
     name: "Wallas On",
     settings: "Settings",
@@ -455,6 +516,67 @@ const en: Dict = {
       {
         title: "Changes",
         body: ["If this policy changes, we’ll publish the new version on this page with its update date."],
+      },
+    ],
+  },
+  termsPage: {
+    title: "Terms of Use",
+    description: "Wallas On Terms of Use. Wallas On is an audio utility, not a medical device.",
+    heading: "Terms",
+    accent: "of Use.",
+    intro: "By downloading or using Wallas On you agree to these terms. If you don’t agree, don’t use the app.",
+    updated: "Last updated: November 7, 2026",
+    contactLabel: "Questions about these terms:",
+    sections: [
+      {
+        title: "What Wallas On is",
+        body: [
+          "Wallas On is an audio utility that keeps your iPhone’s Bluetooth audio stream open while you use other apps, so your device doesn’t switch in and out of streaming mode between one sound and the next.",
+          "iOS handles the connection to your device. Wallas On doesn’t communicate with your hearing device, doesn’t configure it and doesn’t change any of its settings.",
+        ],
+      },
+      {
+        title: "Medical disclaimer",
+        body: [
+          "Wallas On is not a medical device. It doesn’t diagnose, treat, measure or adjust hearing, and it doesn’t replace the advice of your doctor or audiologist.",
+          "Always seek the advice of your doctor or audiologist in addition to using this app and before making any medical decisions.",
+        ],
+      },
+      {
+        title: "Use at your own risk",
+        body: [
+          "You use Wallas On at your own risk. Don’t rely on the app in situations where missing a sound could put you at risk, such as driving or crossing the street.",
+          "How each device handles sound depends on its manufacturer and firmware, so results may vary.",
+        ],
+      },
+      {
+        title: "Devices and countries",
+        body: [
+          "Wallas On has been tested with the Cochlear Nucleus 7 sound processor (CP1000) and is available only in the United States, Canada, Mexico, Brazil, Japan and Australia, where that device has regulatory clearance.",
+          "Use Wallas On only with hearing devices that are approved for use in your country. Wallas On is not affiliated with, sponsored or endorsed by Cochlear or any other hearing device manufacturer. Trademarks mentioned belong to their respective owners.",
+        ],
+      },
+      {
+        title: "No warranties",
+        body: [
+          "Wallas On is provided “as is” and “as available”. To the extent permitted by law, we don’t guarantee that the app will work without interruptions, without errors or with every device.",
+        ],
+      },
+      {
+        title: "Limitation of liability",
+        body: [
+          "To the extent permitted by law, Wallas will not be liable for any direct or indirect damages resulting from the use of, or inability to use, the app. Nothing in these terms limits the rights you have as a consumer under the laws of your country.",
+        ],
+      },
+      {
+        title: "License",
+        body: [
+          "In addition to these terms, your use of Wallas On is governed by Apple’s standard Licensed Application End User License Agreement for App Store apps.",
+        ],
+      },
+      {
+        title: "Changes",
+        body: ["If these terms change, we’ll publish the new version on this page with its update date."],
       },
     ],
   },

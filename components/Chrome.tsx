@@ -48,6 +48,7 @@ export function Footer({ lang }: { lang: Lang }) {
           <ul className="footer__links">
             <li><Link href={r.compat}>{t.footer.compat}</Link></li>
             <li><Link href={r.privacy}>{t.footer.privacy}</Link></li>
+            <li><Link href={r.terms}>{t.footer.terms}</Link></li>
             <li><Link href={r.support}>{t.footer.support}</Link></li>
           </ul>
         </nav>

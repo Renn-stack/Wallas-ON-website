@@ -47,13 +47,22 @@ export function CompatPage({ lang }: { lang: Lang }) {
 }
 
 export function PrivacyPage({ lang }: { lang: Lang }) {
-  const t = dictionaries[lang].privacyPage;
+  return <PolicyPage lang={lang} page="privacyPage" titleId="priv-title" />;
+}
+
+export function TermsPage({ lang }: { lang: Lang }) {
+  return <PolicyPage lang={lang} page="termsPage" titleId="terms-title" />;
+}
+
+/** Texto legal por secciones: privacidad y términos comparten el mismo formato. */
+function PolicyPage({ lang, page, titleId }: { lang: Lang; page: "privacyPage" | "termsPage"; titleId: string }) {
+  const t = dictionaries[lang][page];
   return (
-    <section className="page" aria-labelledby="priv-title">
+    <section className="page" aria-labelledby={titleId}>
       <div className="container">
         <div className="page__head">
           <p className="eyebrow">{t.title}</p>
-          <h1 id="priv-title" className="h1">
+          <h1 id={titleId} className="h1">
             {t.heading}
             <br />
             <span className="accent-muted">{t.accent}</span>
